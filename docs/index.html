@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#03050d">
+  <meta name="description" content="Tetris // Afterdark — a neon browser block-stacking game.">
+  <title>Tetris // Afterdark</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="arcade-shell">
+    <header class="topbar glass-panel">
+      <div>
+        <p class="eyebrow">Classic mode · Endless</p>
+        <h1><span>Tetris</span> <b>//</b> Afterdark</h1>
+      </div>
+      <button class="neon-button" id="new-game" type="button">New Game</button>
+    </header>
+
+    <section class="game-layout" aria-label="Tetris game">
+      <aside class="stats-panel glass-panel">
+        <div class="stat-block"><span>Score</span><strong id="score">000000</strong></div>
+        <div class="stat-block"><span>High</span><strong id="high-score">000000</strong></div>
+        <div class="stat-row">
+          <div><span>Level</span><strong id="level">01</strong></div>
+          <div><span>Lines</span><strong id="lines">00</strong></div>
+        </div>
+      </aside>
+
+      <aside class="hold-panel glass-panel" id="hold-panel">
+        <span class="panel-label">Hold</span>
+        <div class="mini-grid" id="hold-preview" aria-label="Empty hold slot"></div>
+        <span class="panel-hint">C / Shift</span>
+      </aside>
+
+      <div class="board-wrap" id="board-wrap" tabindex="0" aria-label="Tetris board. Game is idle.">
+        <div class="board" id="board" role="grid" aria-label="10 by 20 Tetris board"></div>
+        <div class="board-overlay" id="overlay">
+          <span id="overlay-title">Ready?</span>
+          <small id="overlay-subtitle">Press New Game</small>
+        </div>
+        <div class="clear-callout" id="clear-callout" hidden></div>
+      </div>
+
+      <aside class="next-panel glass-panel">
+        <span class="panel-label">Next</span>
+        <div class="preview-list" id="next-previews"></div>
+      </aside>
+    </section>
+
+    <section class="controls glass-panel" aria-label="Game controls">
+      <button type="button" data-action="left" aria-label="Move left"><kbd>←</kbd><span>Move</span></button>
+      <button type="button" data-action="right" aria-label="Move right"><kbd>→</kbd><span>Move</span></button>
+      <button type="button" data-action="down" aria-label="Soft drop"><kbd>↓</kbd><span>Soft drop</span></button>
+      <button type="button" data-action="rotate" aria-label="Rotate clockwise"><kbd>↑</kbd><span>Rotate</span></button>
+      <button type="button" data-action="drop" aria-label="Hard drop"><kbd>Space</kbd><span>Hard drop</span></button>
+      <button type="button" data-action="hold" aria-label="Hold piece"><kbd>C</kbd><span>Hold</span></button>
+      <button type="button" data-action="pause" aria-label="Pause game"><kbd>P</kbd><span id="pause-label">Pause</span></button>
+    </section>
+
+    <p class="footer-note">Keyboard and touch ready · High score saves on this device</p>
+    <p class="sr-only" id="live-status" aria-live="polite"></p>
+  </main>
+</body>
+</html>
